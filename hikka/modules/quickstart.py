@@ -19,7 +19,7 @@ imgs = [
 
 
 @loader.tds
-class Quickstart(loader.Module):
+class QuickstartMod(loader.Module):
     """Notifies user about userbot installation"""
 
     async def client_ready(self):
