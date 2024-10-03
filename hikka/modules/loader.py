@@ -63,7 +63,7 @@ class LoaderMod(loader.Module):
         self.config = loader.ModuleConfig(
             loader.ConfigValue(
                 "MODULES_REPO",
-                "https://github.com/psleiny/SodaLEiNY/raw/main/Modules/",
+                "https://github.com/psleiny/SodaModules/raw/main",
                 lambda: self.strings("repo_config_doc"),
                 validator=loader.validators.Link(),
             ),
@@ -71,7 +71,7 @@ class LoaderMod(loader.Module):
                 "ADDITIONAL_REPOS",
                 # Currenly the trusted developers are specified
                 [
-                    "https://github.com/nobianer/Userbots-modules-UA/raw/main/modules",
+                    "https://github.com/nobianer/Userbots-modules-UA/raw/main",
                     "https://github.com/C0dwiz/H.Modules/raw/main",
                 ],
                 lambda: self.strings("add_repo_config_doc"),
@@ -106,7 +106,6 @@ class LoaderMod(loader.Module):
         )
         logger.debug("Modules: %s", modules)
         asyncio.ensure_future(self._storage.preload(modules))
-        asyncio.ensure_future(self._storage.preload_main_repo())
 
     async def client_ready(self):
         while not (settings := self.lookup("settings")):
